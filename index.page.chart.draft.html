@@ -9,7 +9,7 @@
         <!--global level js-->
         <!-- <script src="https://www.sdp-workshop.com/assets/js/jquery-1.12.4.min.js" type="text/javascript" ></script> -->
         <script src="./index_files/jquery.min.js.download"></script>
-        <script src="./index_files/bootstrap-3.3.7.min.js.download" type="text/javascript"></script>
+        <!-- <script src="./index_files/bootstrap-3.3.7.min.js.download" type="text/javascript"></script> -->
         
         <!-- Icon -->
 
@@ -27,11 +27,41 @@
         <link type="text/css" rel="stylesheet" href="./index_files/css(2)">
         <link type="text/css" rel="stylesheet" href="./index_files/css(3)">
         <link type="text/css" rel="stylesheet" href="./index_files/custom.css">
-        <script src="./index_files/affiliates.js.download" type="text/javascript"></script>
-        <script src="./index_files/custom(1).css" type="text/javascript"></script>
+        <!-- <script src="./index_files/affiliates.js.download" type="text/javascript"></script>
+        <script src="./index_files/custom(1).css" type="text/javascript"></script> -->
 
     
-    <script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script language='javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+                <script type="text/javascript">
+        
+        google.load('visualization', '1', {packages:['corechart']});
+        google.setOnLoadCallback(drawChart);
+        
+        function drawChart () {
+            $.ajax({
+                url: 'ttt.txt',
+                type: 'get',
+                success: 
+                    function(txt){
+                  var dataArray = [['x', 'y']
+                                     ];
+    
+                    for (var i=0;txt!=null; i++){
+                        var txtArray = txt.split("\n");
+                        var tmpData = txtArray[i].split(" ");
+    
+                         dataArray.push([tmpData[0], parseInt(tmpData[1])]);					
+                         var data = google.visualization.arrayToDataTable(dataArray);
+                            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                        chart.draw(data, {
+                            title: 'Company Performance',
+                          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}});
+                    }	
+                }
+            });
+        }
+  
 
         if (typeof fbq === "function") { 
             fbq('trackCustom', 'Webinar');
@@ -58,109 +88,112 @@
             <!-- <h3 class="show-less-than-tablet-width">(Tap the Play Button or Unmute Video Player to Watch Masterclass)</h3>-->
 
             <div class="chart-div" class="test-align -center" class = "container">
-                <canvas id = "myChart" width="100" height="100">
-                    
-                </canvas>
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
-                // <button id="change-chart">Change to Classic</button>
                 
-            //     google.charts.load('current', {'packages':['line', 'corechart']});
-            //     google.charts.setOnLoadCallback(drawChart);
-          
-            //     function drawChart() {
-          
-            //     var button = document.getElementById('change-chart');
-            //     var chartDiv = document.getElementById('chart_div');
-          
-            //     var data = new google.visualization.DataTable();
-            //     data.addColumn('date', 'Month');
-            //     data.addColumn('number', "Average Temperature");
-            //     data.addColumn('number', "Average Hours of Daylight"); 
-          
-            //     data.addRows([
-            //       [new Date(2019, 0),  -.5,  5.7],
-            //       [new Date(2019, 1),   .4,  8.7],
-            //       [new Date(2019, 2),   .5,   12],
-            //       [new Date(2019, 3),  2.9, 15.3],
-            //       [new Date(2019, 4),  6.3, 18.6],
-            //       [new Date(2019, 5),    9, 20.9],
-            //       [new Date(2019, 6), 10.6, 19.8],
-            //       [new Date(2019, 7), 10.3, 16.6],
-            //       [new Date(2019, 8),  7.4, 13.3],
-            //       [new Date(2019, 9),  4.4,  9.9],
-            //       [new Date(2019, 10), 1.1,  6.6],
-            //       [new Date(2019, 11), -.2,  4.5]
-            //     ]);
-          
-            //     var materialOptions = {
-            //       chart: {
-            //         title: 'Rata Rata Penggunaan dan pengakses video pada page yang tlah di tentukan:'
-            //       },
-            //       width: 900,
-            //       height: 500,
-            //       series: {
-            //         // Gives each series an axis name that matches the Y-axis below.
-            //         0: {axis: 'Temps'},
-            //         1: {axis: 'Daylight'}
-            //       },
-            //       axes: {
-            //         // Adds labels to each axis; they don't have to match the axis names.
-            //         y: {
-            //           Temps: {label: 'Temps (Celsius)'},
-            //           Daylight: {label: 'Daylight'}
-            //         }
-            //       }
-            //     };
-          
-            //     var classicOptions = {
-            //       title: 'Rata Rata Penggunaan dan pengakses video pada page yang telah di tentukan:',
-            //       width: 900,
-            //       height: 500,
-            //       // Gives each series an axis that matches the vAxes number below.
-            //       series: {
-            //         0: {targetAxisIndex: 0},
-            //         1: {targetAxisIndex: 1}
-            //       },
-            //       vAxes: {
-            //         // Adds titles to each axis.
-            //         0: {title: 'Temps (Celsius)'},
-            //         1: {title: 'Daylight'}
-            //       },
-            //       hAxis: {
-            //         ticks: [new Date(2019, 0), new Date(2019, 1), new Date(20019, 2), new Date(2019, 3),
-            //                 new Date(2019, 4),  new Date(2019, 5), new Date(2019, 6), new Date(2019, 7),
-            //                 new Date(2019, 8), new Date(2019, 9), new Date(2019, 10), new Date(2019, 11)
-            //                ]
-            //       },
-            //       vAxis: {
-            //         viewWindow: {
-            //           max: 30
-            //         }
-            //       }
-            //     };
-          
-            //     function drawMaterialChart() {
-            //       var materialChart = new google.charts.Line(chartDiv);
-            //       materialChart.draw(data, materialOptions);
-            //       button.innerText = 'Change to Classic';
-            //       button.onclick = drawClassicChart;
-            //     }
-          
-            //     function drawClassicChart() {
-            //       var classicChart = new google.visualization.LineChart(chartDiv);
-            //       classicChart.draw(data, classicOptions);
-            //       button.innerText = 'Change to Material';
-            //       button.onclick = drawMaterialChart;
-            //     }
-            //     drawMaterialChart();
-            //     var text_print = new XMLHttpRequest();
-            //     text_print.open("GET", "folder/file.txt", true);
-            //     text_print.send();
-            //     text_print.onload = function (){
-            //         console.log( text_print.responseText.slice(0, text_print.responseText.indexOf("\n")) ); };
+                <!-- <canvas id = "myChart" width="100" height="100"> -->
+                    
+                <!-- </canvas> -->
+                <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
 
-            //     document.getElementById("printed").innerHTML=text_print;          
-            //   }
+
+                <button id="change-chart">Change to Classic</button>
+                
+                google.charts.load('current', {'packages':['line', 'corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+          
+                function drawChart() {
+          
+                var button = document.getElementById('change-chart');
+                var chartDiv = document.getElementById('chart_div');
+          
+                var data = new google.visualization.DataTable();
+                data.addColumn('date', 'Month');
+                data.addColumn('number', "Average Temperature");
+                data.addColumn('number', "Average Hours of Daylight"); 
+          
+                data.addRows([
+                  [new Date(2019, 0),  -.5,  5.7],
+                  [new Date(2019, 1),   .4,  8.7],
+                  [new Date(2019, 2),   .5,   12],
+                  [new Date(2019, 3),  2.9, 15.3],
+                  [new Date(2019, 4),  6.3, 18.6],
+                  [new Date(2019, 5),    9, 20.9],
+                  [new Date(2019, 6), 10.6, 19.8],
+                  [new Date(2019, 7), 10.3, 16.6],
+                  [new Date(2019, 8),  7.4, 13.3],
+                  [new Date(2019, 9),  4.4,  9.9],
+                  [new Date(2019, 10), 1.1,  6.6],
+                  [new Date(2019, 11), -.2,  4.5]
+                ]);
+          
+                var materialOptions = {
+                  chart: {
+                    title: 'Rata Rata Penggunaan dan pengakses video pada page yang tlah di tentukan:'
+                  },
+                  width: 900,
+                  height: 500,
+                  series: {
+                    // Gives each series an axis name that matches the Y-axis below.
+                    0: {axis: 'Temps'},
+                    1: {axis: 'Daylight'}
+                  },
+                  axes: {
+                    // Adds labels to each axis; they don't have to match the axis names.
+                    y: {
+                      Temps: {label: 'Temps (Celsius)'},
+                      Daylight: {label: 'Daylight'}
+                    }
+                  }
+                };
+          
+                var classicOptions = {
+                  title: 'Rata Rata Penggunaan dan pengakses video pada page yang telah di tentukan:',
+                  width: 900,
+                  height: 500,
+                  // Gives each series an axis that matches the vAxes number below.
+                  series: {
+                    0: {targetAxisIndex: 0},
+                    1: {targetAxisIndex: 1}
+                  },
+                  vAxes: {
+                    // Adds titles to each axis.
+                    0: {title: 'Temps (Celsius)'},
+                    1: {title: 'Daylight'}
+                  },
+                  hAxis: {
+                    ticks: [new Date(2019, 0), new Date(2019, 1), new Date(20019, 2), new Date(2019, 3),
+                            new Date(2019, 4),  new Date(2019, 5), new Date(2019, 6), new Date(2019, 7),
+                            new Date(2019, 8), new Date(2019, 9), new Date(2019, 10), new Date(2019, 11)
+                           ]
+                  },
+                  vAxis: {
+                    viewWindow: {
+                      max: 30
+                    }
+                  }
+                };
+          
+                function drawMaterialChart() {
+                  var materialChart = new google.charts.Line(chartDiv);
+                  materialChart.draw(data, materialOptions);
+                  button.innerText = 'Change to Classic';
+                  button.onclick = drawClassicChart;
+                }
+          
+                function drawClassicChart() {
+                  var classicChart = new google.visualization.LineChart(chartDiv);
+                  classicChart.draw(data, classicOptions);
+                  button.innerText = 'Change to Material';
+                  button.onclick = drawMaterialChart;
+                }
+                drawMaterialChart();
+                var text_print = new XMLHttpRequest();
+                text_print.open("GET", "folder/file.txt", true);
+                text_print.send();
+                text_print.onload = function (){
+                    console.log( text_print.responseText.slice(0, text_print.responseText.indexOf("\n")) ); };
+
+                document.getElementById("printed").innerHTML=text_print;          
+              }
 
             function drawChart () {
                 $.ajax({
@@ -187,8 +220,9 @@
                     }
                 });
             }
-            google.load('visualization', '1', {packages:['corechart'], callback: drawChart});
-            </script>
+            google.load('visualization', '1', {packages:['corechart'], callback: drawChart}); -->
+
+           
                 
             </div>
             <div style="margin-top: 300px;">

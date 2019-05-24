@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%> -->
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script language='javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+    <script type="text/javascript">
+    
+    google.load('visualization', '1', {packages:['corechart']});
+    google.setOnLoadCallback(drawChart);
+    
+    function drawChart () {
+        $.ajax({
+            url: 'ttt.txt',
+            type: 'get',
+            success: 
+            	function(txt){
+          	var dataArray = [['x', 'y']
+            	                 ];
+
+            	for (var i=0;txt!=null; i++){
+            		var txtArray = txt.split("\n");
+					var tmpData = txtArray[i].split(" ");
+
+ 					dataArray.push([tmpData[0], parseInt(tmpData[1])]);					
+ 	            	var data = google.visualization.arrayToDataTable(dataArray);
+ 	           		var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    				chart.draw(data, {
+          	          title: 'Company Performance',
+        	          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}});
+            	}	
+        	}
+        });
+    }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
