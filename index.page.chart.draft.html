@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://www.sdp-workshop.com/webinar.php?a=1388589653 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>180Startup | Tempat belajar kekinian jaman now untuk mengembangkan enterpreneuship disertai mentorship membangun bisnis online.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <!--global level js-->
+        <!-- <script src="https://www.sdp-workshop.com/assets/js/jquery-1.12.4.min.js" type="text/javascript" ></script> -->
+        <script src="./index_files/jquery.min.js.download"></script>
+        <script src="./index_files/bootstrap-3.3.7.min.js.download" type="text/javascript"></script>
+        
+        <!-- Icon -->
+
+        <!-- global level css -->
+        <link type="text/css" rel="stylesheet" href="./index_files/bootstrap-3.3.7.min.css">
+
+        <!--- css fonts -->
+        <link rel="stylesheet" id="open-sans-css" href="./index_files/css" type="text/css" media="all">
+        <link rel="stylesheet" id="montserrat-css" href="./index_files/css(1)" type="text/css" media="all">
+
+
+        <!--Page Level CSS / JS-->
+        <link type="text/css" rel="stylesheet" href="./index_files/landing.css">
+        <link type="text/css" rel="stylesheet" href="./index_files/evergreen-webinar.css">
+        <link type="text/css" rel="stylesheet" href="./index_files/css(2)">
+        <link type="text/css" rel="stylesheet" href="./index_files/css(3)">
+        <link type="text/css" rel="stylesheet" href="./index_files/custom.css">
+        <script src="./index_files/affiliates.js.download" type="text/javascript"></script>
+        <script src="./index_files/custom(1).css" type="text/javascript"></script>
+
+    
+    <script>
+
+        if (typeof fbq === "function") { 
+            fbq('trackCustom', 'Webinar');
+        }
+        
+    </script>
+
+    <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.5.3/plyr.css" /> -->
+    <link rel="stylesheet" href="./index_files/mediaelementplayer.min.css">
+
+</head>
+
+<body cz-shortcut-listen="true">
+<div id="evergreen-webinar-page" class="evergreen-funnel">
+    <header>
+        <h1 class="show-greater-than-tablet-width">Di page ini berguna untuk mengetahui  <br> aktfitas pengakses dan pengguna dari si user dan seberapa <br> sering user tersebut mengksesnya</h1>
+        <h1 class="show-less-than-tablet-width">Dari sebuah page yang dimana terdapat video</h1>
+    </header>
+    <section>
+        <div class="content">
+            <h2 class="show-greater-than-tablet-width">Data user dan pengguna dalam mengakses page ini dalam bentuk diagram</h2>
+            <h2 class="show-less-than-tablet-width">Data user dan pengguna dalam mengakses page ini dalam bentuk diagram</h2>
+            <!-- <h3 class="show-greater-than-tablet-width webinar_desk_heading">(Click Play Button or Unmute Video Player to Watch Masterclass)</h3>-->
+            <!-- <h3 class="show-less-than-tablet-width">(Tap the Play Button or Unmute Video Player to Watch Masterclass)</h3>-->
+
+            <div class="chart-div" class="test-align -center" class = "container">
+                <canvas id = "myChart" width="100" height="100">
+                    
+                </canvas>
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+                <button id="change-chart">Change to Classic</button>
+                
+                google.charts.load('current', {'packages':['line', 'corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+          
+                function drawChart() {
+          
+                var button = document.getElementById('change-chart');
+                var chartDiv = document.getElementById('chart_div');
+          
+                var data = new google.visualization.DataTable();
+                data.addColumn('date', 'Month');
+                data.addColumn('number', "Average Temperature");
+                data.addColumn('number', "Average Hours of Daylight"); 
+          
+                data.addRows([
+                  [new Date(2019, 0),  -.5,  5.7],
+                  [new Date(2019, 1),   .4,  8.7],
+                  [new Date(2019, 2),   .5,   12],
+                  [new Date(2019, 3),  2.9, 15.3],
+                  [new Date(2019, 4),  6.3, 18.6],
+                  [new Date(2019, 5),    9, 20.9],
+                  [new Date(2019, 6), 10.6, 19.8],
+                  [new Date(2019, 7), 10.3, 16.6],
+                  [new Date(2019, 8),  7.4, 13.3],
+                  [new Date(2019, 9),  4.4,  9.9],
+                  [new Date(2019, 10), 1.1,  6.6],
+                  [new Date(2019, 11), -.2,  4.5]
+                ]);
+          
+                var materialOptions = {
+                  chart: {
+                    title: 'Rata Rata Penggunaan dan pengakses video pada page yang tlah di tentukan:'
+                  },
+                  width: 900,
+                  height: 500,
+                  series: {
+                    // Gives each series an axis name that matches the Y-axis below.
+                    0: {axis: 'Temps'},
+                    1: {axis: 'Daylight'}
+                  },
+                  axes: {
+                    // Adds labels to each axis; they don't have to match the axis names.
+                    y: {
+                      Temps: {label: 'Temps (Celsius)'},
+                      Daylight: {label: 'Daylight'}
+                    }
+                  }
+                };
+          
+                var classicOptions = {
+                  title: 'Rata Rata Penggunaan dan pengakses video pada page yang telah di tentukan:',
+                  width: 900,
+                  height: 500,
+                  // Gives each series an axis that matches the vAxes number below.
+                  series: {
+                    0: {targetAxisIndex: 0},
+                    1: {targetAxisIndex: 1}
+                  },
+                  vAxes: {
+                    // Adds titles to each axis.
+                    0: {title: 'Temps (Celsius)'},
+                    1: {title: 'Daylight'}
+                  },
+                  hAxis: {
+                    ticks: [new Date(2019, 0), new Date(2019, 1), new Date(20019, 2), new Date(2019, 3),
+                            new Date(2019, 4),  new Date(2019, 5), new Date(2019, 6), new Date(2019, 7),
+                            new Date(2019, 8), new Date(2019, 9), new Date(2019, 10), new Date(2019, 11)
+                           ]
+                  },
+                  vAxis: {
+                    viewWindow: {
+                      max: 30
+                    }
+                  }
+                };
+          
+                function drawMaterialChart() {
+                  var materialChart = new google.charts.Line(chartDiv);
+                  materialChart.draw(data, materialOptions);
+                  button.innerText = 'Change to Classic';
+                  button.onclick = drawClassicChart;
+                }
+          
+                function drawClassicChart() {
+                  var classicChart = new google.visualization.LineChart(chartDiv);
+                  classicChart.draw(data, classicOptions);
+                  button.innerText = 'Change to Material';
+                  button.onclick = drawMaterialChart;
+                }
+                drawMaterialChart();
+          
+              }
+            </script>
+                
+            </div>
+            <div style="margin-top: 300px;">
+                <h3 class="show-greater-than-tablet-width"><i class="fa fa-volume-up"></i><strong>Mohon di cermati data grafik tersebut : </strong></h3>
+            </div>
+            <div class="box">
+                <header>
+                    <h1 class="show-greater-than-tablet-width">Di dalam grafik tersebut anda akan bisa mengetahui : ...</h1>
+                    
+                </header>
+                <section class="show-greater-than-tablet-width">
+                    <div class="w-row">
+                        <div class="col">
+                            <img src="./index_files/Money-Increase-128.png" alt="">
+                            <h4>#1</h4>
+                            <p>Apa itu leverage? Kenapa perlu menemukan dan memanfaatkan leverage di dalam bisnis dan kehidupan Anda? Karena hanya dengan leverage Anda tidak perlu menghabiskan waktu bertahun-tahun percuma
+                                <span class="emoji emoji-gem"></span></p>
+                            <hr>
+                        </div>
+
+                        <div class="col">
+                            <img src="./index_files/money-128.png" alt="">
+                            <h4>#2</h4>
+                            <p>Dunia berubah sangat cepat. Makin banyak profesi yang dialihkan ke digital. Bagaimana cara yang tepat masuk ke dunia digital dan mulai membangun bisnis Anda di dunia digital dengan formula yang tepat
+                                <span class="emoji emoji-voltage"></span></p>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="w-row">
+                        <div class="col">
+                            <img src="./index_files/wallet-128.png" alt="">
+                            <h4>#3</h4>
+                            <p>Satu formula yang sangat dahsyat yang sudah ada lama ada namun belum pernah ditemukan oleh digital marketer manapun di Indonesia. Akan saya sharingkan bagaimana Anda bisa menggunakan formula rahasia ini untuk membuat ledakan omset di penjualan Anda
+                                <span class="emoji emoji-money-bag"></span></p>
+                        </div>
+                        <div class="col">
+                            <img src="./index_files/Money-Graph-128.png" alt="">
+                            <h4>#4</h4>
+                            <p>Saya akan tunjukkan kepada Anda suatu sistem otomatisasi yang bisa Anda gunakan untuk membangun bisnis di dunia online dan menghasilkan. Saya akan tunjukkan hasilnya kepada Anda. Jadi jangan sampai Anda lewatkan semua informasi lengkap di Masterclass ini
+                                <span class="emoji emoji-crown"></span></p>
+                        </div>
+                    </div>
+                </section>
+                <section class="show-less-than-tablet-width">
+                    <p><strong>#1</strong>Apa itu leverage? Kenapa perlu menemukan dan memanfaatkan leverage di dalam bisnis dan kehidupan Anda? Karena hanya dengan leverage Anda tidak perlu menghabiskan waktu bertahun-tahun percuma<span class="emoji emoji-gem"></span></p>
+                    <hr>
+                    <p><strong>#2</strong>Dunia berubah sangat cepat. Makin banyak profesi yang dialihkan ke digital. Bagaimana cara yang tepat masuk ke dunia digital dan mulai membangun bisnis Anda di dunia digital dengan formula yang tepat
+                    <span class="emoji emoji-voltage"></span></p>
+                    <hr>
+                    <p><strong>#3</strong>Satu formula yang sangat dahsyat yang sudah ada lama ada namun belum pernah ditemukan oleh digital marketer manapun di Indonesia. Akan saya sharingkan bagaimana Anda bisa menggunakan formula rahasia ini untuk membuat ledakan omset di penjualan Anda
+                                <span class="emoji emoji-money-bag"></span></p>
+                    <hr>
+                    <p><strong>#4</strong>Saya akan tunjukkan kepada Anda suatu sistem otomatisasi yang bisa Anda gunakan untuk membangun bisnis di dunia online dan menghasilkan. Saya akan tunjukkan hasilnya kepada Anda. Jadi jangan sampai Anda lewatkan semua informasi lengkap di Masterclass ini
+                                <span class="emoji emoji-crown"></span></p>
+                </section>
+                
+                <script>
+                    $(document).ready(function(){
+                        $('.interest-button').on('click', function(e){
+
+                            var affiliateId = 1388589653
+                            e.preventDefault();
+
+                            if (typeof fbq === "function") { 
+                                fbq('trackCustom', 'InitiatedPurchase');
+                            }
+
+                            window.open('https://180startup.com/pay/' + affiliateId, '_blank');
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+    <div id="footer-menu" class="black-transparent">
+    <p>Copyright © 2019 <a href="https://www.sdp-workshop.com/index.php" target="_blank">180Startup.</a> All Rights Reserved.</p>
+    <ul>
+            <li><a href="https://180startup.com/privacy-policy" target="_blank">Pemberitahuan Tentang Privasi Pengguna</a></li>
+            <li><a href="https://180startup.com/terms-of-use" target="_blank">Syarat Penggunaan</a></li>
+            <li><a href="https://180startup.com/disclaimer" target="_blank">Pernyataan Mengenai Potensi Penghasilan</a></li>
+    </ul>
+</div></div>
+    <!--Global JS-->
+        <script src="./index_files/josh.js.download" type="text/javascript"></script>
+        <script src="./index_files/metisMenu.js.download" type="text/javascript"></script>
+    <!-- end of global js -->
+
+    <!--Page Level CSS / JS-->
+    <script src="./index_files/main.js.download" type="text/javascript"></script>
+    
+    <!-- <script src="https://cdn.plyr.io/3.5.3/plyr.polyfilled.js"></script> -->
+    <!-- <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelement.min.js"></script> -->
+    <script src="./index_files/mediaelement-and-player.min.js.download"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+        // document.oncontextmenu = function() {
+        //     return false;
+        // }
+
+        // $(window).on('keydown',function(event) {
+        // if(event.ctrlKey)
+        // {
+        //     return false;
+        // }
+        // });
+
+        var player = new MediaElementPlayer('player', {
+            mode: 'auto_plugin',
+            features: ['volume'],
+            defaultVideoWidth: 480, 
+            defaultVideoHeight: 360,
+            success: function (me) {
+                if (me.pluginType !== 'flash') {
+                    me.addEventListener('loadstart', function (e) {
+                        me.play();
+                    }, false);
+
+                    return;
+                }
+
+                if (me.attributes.preload === 'none') {
+                    $(me.pluginElement).ready(function (e) {
+                        me.play();
+                    });
+                }else {
+                    me.addEventListener('canplay', function (e) {
+                        me.play();
+                    }, false);
+                }
+
+            }
+        });
+
+        player.setVolume(100);
+        player.setMuted(false);
+
+    });
+    </script>
+
+    <script>
+        // var video = document.getElementById('player');
+        // var playPromise = video.play();
+
+        // if (playPromise !== undefined) {
+        //     playPromise.then(_ => {
+        //         // Automatic playback started!
+        //         // Show playing UI.
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //         // Auto-play was prevented
+        //         // Show paused UI.
+        //     });
+        // }
+
+        // // var player = new Plyr('#player', {
+        // //     controls: false
+        // // });
+
+        // checkforVideo(video)
+
+        // function checkforVideo(vid) {
+        //     //Every 500ms, check if the video element has loaded
+        //     var b = setInterval(()=>{
+
+        //         console.log(vid.readyState)
+        //         if(vid.readyState > 3) {
+        //             // vid.muted = false;
+        //             clearInterval(b);
+        //         }
+
+        //     },500);
+        // }
+    </script>
+   
+    
+
+
+</body></html>
