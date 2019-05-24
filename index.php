@@ -1,3 +1,11 @@
+<?php
+$cookie_name = "user";
+$cookie_value = "Alex Porter";
+$time = time() + (86400 * 30);
+
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0053)https://www.sdp-workshop.com/webinar.php?a=1388589653 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -78,9 +86,15 @@
         {
         // var start = null;
         
-        // var start = new Date();
-        var vid = document.getElementById("player");
            
+        
+        // var x = document.cookie;
+        // var x = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        
+
+var x = '<?php echo $cookie_value; ?>';
+
+        alert('cookie :'+x)
             $(window).unload(function(event) {
                 
                 
@@ -89,7 +103,7 @@
                 
                 // document.forms["newsletter"].submit();
 
-                var x = document.cookie;
+                // var x = document.cookie;
                 var elapsed = vid.duration;
                 
                         // var time = event.timeStamp - start;
@@ -108,7 +122,7 @@
                     }
                     xmlhttp.open("POST","phpwrite2.php",true);
                     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                    xmlhttp.send("name=Time :"+elapsed+" Person :"+ x +" \n <\br>");                    
+                    xmlhttp.send("name=Time :"+elapsed+" Person :"+ x +"\n");                    
                    
             });
         });
