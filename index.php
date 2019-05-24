@@ -94,7 +94,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
 var x = '<?php echo $cookie_value; ?>';
 
-        alert('cookie :'+x)
+        // alert('cookie :'+x)
             $(window).unload(function(event) {
                 
                 
