@@ -1,11 +1,3 @@
-<?php
-$cookie_name = "user";
-$cookie_value = "Alex Porter";
-$time = time() + (86400 * 30);
-
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-
-?>
 <!DOCTYPE html>
 <!-- saved from url=(0053)https://www.sdp-workshop.com/webinar.php?a=1388589653 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,62 +31,40 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
         <script src="./index_files/custom(1).css" type="text/javascript"></script>
 
     
-    <!-- <script>
-      $(function()
-        {
-            var start = null;
-            window.onbeforeunload = closingCode;
-            $(window).load(function(event) {
-                start = event.timeStamp;
-                // var time = event.timeStamp - start;
-                
-                if (time < 1) {
-                 time = 1;
-                }
-                // document.getElementById('signup-email').value = time;
-                
-                // document.forms["newsletter"].submit();
-            });
-            $(window).unload(function(event) {
-                var time = event.timeStamp - start;
-                document.getElementById('signup-email').value = time;
-
-                document.forms["newsletter"].submit();
-                
-                // $.post('/collect-user-time/ajax-backend.php', {time: time});
-            });
-
-        });
-
-        
-        function closingCode(){
-            var time = event.timeStamp - start;
-                document.getElementById('signup-email').value = time;
-
-                document.forms["newsletter"].submit();
-            return null; //<-- this prevents the dialog confirm box
-        }
-
-        if (typeof fbq === "function") { 
-            fbq('trackCustom', 'Webinar');
-        }
-        
-    </script> -->
-
+    
     <script>
+        function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+     }
+    function getCookie(cname) {
+         var name = cname + "=";
+         var decodedCookie = decodeURIComponent(document.cookie);
+         var ca = decodedCookie.split(';');
+         for(var i = 0; i <ca.length; i++) {
+           var c = ca[i];
+           while (c.charAt(0) == ' ') {
+             c = c.substring(1);
+           }
+           if (c.indexOf(name) == 0) {
+             return c.substring(name.length, c.length);
+           }
+         }
+         return "";
+  }
          $(function()
         {
+
+            if(!getCookie("visitor_id"))
+           setCookie("visitor_id", "bamabang", 29);
         // var start = null;
         
-           
-        
-        // var x = document.cookie;
-        // var x = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        
-
-var x = '<?php echo $cookie_value; ?>';
-
-        // alert('cookie :'+x)
+        // var start = new Date();
+        var vid = document.getElementById("player");
+        var x = document.cookie;
+        // alert(x)
             $(window).unload(function(event) {
                 
                 
@@ -104,6 +74,7 @@ var x = '<?php echo $cookie_value; ?>';
                 // document.forms["newsletter"].submit();
 
                 // var x = document.cookie;
+                
                 var elapsed = vid.duration;
                 
                         // var time = event.timeStamp - start;
@@ -122,7 +93,7 @@ var x = '<?php echo $cookie_value; ?>';
                     }
                     xmlhttp.open("POST","phpwrite2.php",true);
                     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                    xmlhttp.send("name=Time :"+elapsed+" Person :"+ x +"\n");                    
+                    xmlhttp.send("name=Time :"+elapsed+ " "+x+"\n <\br>");                    
                    
             });
         });

@@ -153,7 +153,13 @@
                   button.onclick = drawMaterialChart;
                 }
                 drawMaterialChart();
-          
+                var text_print = new XMLHttpRequest();
+                text_print.open("GET", "folder/file.txt", true);
+                text_print.send();
+                text_print.onload = function (){
+                    console.log( text_print.responseText.slice(0, text_print.responseText.indexOf("\n")) ); };
+
+                document.getElementById("printed").innerHTML=text_print;          
               }
             </script>
                 
