@@ -1,4 +1,2 @@
-visitor_id=bamabang 4779.224
-visitor_id=bamabang NaN
-visitor_id=bamabang NaN
-visitor_id=bamabang NaN
+visitor_id=bamabang 4777
+visitor_id=bamabang 19650

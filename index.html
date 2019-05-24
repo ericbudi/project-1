@@ -61,12 +61,16 @@
            setCookie("visitor_id", "bamabang", 29);
         // var start = null;
         
-        // var start = new Date();
-        var vid = document.getElementById("player");
+        var start = new Date();
+        
+        // var vid = document.getElementById("player");
+        
         var x = document.cookie;
+        
         // alert(x)
             $(window).unload(function(event) {
-                
+                var end = new Date();
+                var elapsed = end - start;
                 
                 
                 // document.getElementById('signup-email').value = time;
@@ -75,7 +79,7 @@
 
                 // var x = document.cookie;
                 
-                var elapsed = vid.duration;
+                // var elapsed = vid.duration;
                 
                         // var time = event.timeStamp - start;
                        
