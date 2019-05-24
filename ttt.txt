@@ -1,4 +1,0 @@
-Time :NaN person :visitor_id=bamabang
- <r>
-Time :NaN visitor_id=bamabang
- <r>

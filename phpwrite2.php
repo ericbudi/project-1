@@ -6,7 +6,7 @@ $stringData = $_POST["name"];
 if ($stringData <> "")
 {
     $existingText = file_get_contents($file);
-   fwrite($fh,$existingText .$stringData."\n");
+   fwrite($fh,$existingText .$stringData."");
 }
 // $stringData = $_POST["name"];
 // fwrite($fh, $stringData."\n");
